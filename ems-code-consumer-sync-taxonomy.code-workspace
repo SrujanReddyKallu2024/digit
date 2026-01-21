@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "ems-code-consumer-sync-taxonomy"
+		},
+		{
+			"path": "consumer-sync-taxonomy"
+		},
+		{
+			"path": "consumer-sync-taxonomy-signoff-stats"
+		}
+	],
+	"settings": {}
+}
