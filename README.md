@@ -38,6 +38,35 @@ main_emr.py
 
 ---
 
+## S3 Paths
+
+### Where Files Are Saved/Read
+
+For month **202601** (January 2026):
+
+| File | S3 Path | Read/Write |
+|------|---------|------------|
+| **Previous Stats** | `s3://{stats_bucket}/taxonomy_signoff/202512/output_stats.json` | READ |
+| **Current Stats** | `s3://{stats_bucket}/taxonomy_signoff/202601/output_stats.json` | WRITE (if passed) |
+| **Validation Result** | `s3://{stats_bucket}/taxonomy_signoff/202601/validation_result.json` | WRITE (always) |
+| **Output (Internal)** | `s3://{source_bucket}/internal/taxonomy/digital_taxonomy_202601.txt` | WRITE (if passed) |
+| **Output (Client)** | `s3://{output_bucket}/to_client_delivery/digital_taxonomy_202601.txt` | WRITE (if passed) |
+
+### Path Pattern
+
+```
+s3://{stats_bucket}/taxonomy_signoff/{YYYYMM}/output_stats.json
+s3://{stats_bucket}/taxonomy_signoff/{YYYYMM}/validation_result.json
+```
+
+### Example for January 2026 Run
+
+```
+READ:   s3://my-stats-bucket/taxonomy_signoff/202512/output_stats.json  ← December (previous)
+WRITE:  s3://my-stats-bucket/taxonomy_signoff/202601/output_stats.json  ← January (current)
+WRITE:  s3://my-stats-bucket/taxonomy_signoff/202601/validation_result.json
+```
+
 ## Complete Example
 
 ### Input Data: 5 Rows, 4 Columns
